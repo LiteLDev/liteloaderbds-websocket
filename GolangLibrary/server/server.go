@@ -25,6 +25,7 @@ func StartServer() {
 		go client.writeLoop()
 		go client.readLoop()
 	})
+	logger.Printf("Websocket Server started at %s", Config.ListenAddr)
 	go func() {
 		if Config.UsingTLS {
 			err := http.ListenAndServeTLS(Config.ListenAddr, Config.CertFile, Config.KeyFile, nil)

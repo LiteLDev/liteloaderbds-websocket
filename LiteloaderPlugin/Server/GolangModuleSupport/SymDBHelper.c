@@ -203,8 +203,6 @@ EXTERN_C_SymDBHelper FARPROC WINAPI
         return pfnRet;
     }
     if (strcmp(dli.szDll, LLWS_MEMDLL_NAME) == 0) {
-        if (!subModuleHandler)
-            LoadMemDLL();
         pfnRet = (FARPROC)getProcAddrWrapper(subModuleHandler,dli.dlp.szProcName);
         return pfnRet;
     }

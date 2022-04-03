@@ -1,0 +1,6 @@
+LIBRARY llws_cpp_host.dll
+EXPORTS
+   LoggerWrapper
+   RuncmdWrapper
+   MSVCFreeWrapper
+   BroadcastMessageWrapper

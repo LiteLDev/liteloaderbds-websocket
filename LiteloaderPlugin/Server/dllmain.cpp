@@ -18,10 +18,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        LL::registerPlugin("PluginName", "Introduction", LL::Version(1, 0, 0), {
-                { "Note", "This is a note, you can remove it" },
-                { "Author", "???" },
-                { "Key", "Value" }
+        LL::registerPlugin("Websocket", "using websocket to manage this server", LL::Version(2, 0, 0), {
+                { "Author", "LiteLDev" },
+                { "Github", "https://github.com/LiteLDev/Websocket" }
             }
         );
         break;

@@ -8,7 +8,7 @@ const (
 type LoginRequest struct {
 	// Password is considered as the access key to the server.
 	// It would only need to send once per session.
-	Password string `validate:"required"`
+	Password string `json:"Password" validate:"required"`
 }
 
 type LoginResponse struct {

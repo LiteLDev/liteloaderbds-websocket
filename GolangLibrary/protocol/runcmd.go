@@ -7,7 +7,7 @@ const (
 
 type RuncmdRequest struct {
 	// Command to run
-	Command string `validate:"required"`
+	Command string `json:"Command" validate:"required"`
 }
 
 type RuncmdResponse struct {

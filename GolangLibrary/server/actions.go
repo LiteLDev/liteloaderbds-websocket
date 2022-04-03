@@ -24,4 +24,5 @@ func (h HandlerMap) Call(client *Client, packet *protocol.PacketBase) (*protocol
 func (h HandlerMap) Register() {
 	h[protocol.LoginRequest_Action_Key] = HandleLogin
 	h[protocol.RuncmdRequest_Action_Key] = HandleRuncmd
+	h[protocol.BroadcastRequest_Action_Key] = HandleBroadcast
 }
