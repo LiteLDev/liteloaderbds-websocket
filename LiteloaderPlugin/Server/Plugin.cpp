@@ -149,6 +149,27 @@ void PluginInit(){
 	Event::ServerStartedEvent::subscribe([](Event::ServerStartedEvent ev)->bool {
 		StartServer();
 		return true;
-	});
-	
+		}
+	);
+	Event::PlayerChatEvent::subscribe([](Event::PlayerChatEvent ev)->bool {
+		ChatEventBroadcast(ev.mPlayer->getRealName(), ev.mMessage);
+		return true;
+		}
+	);
+	Event::PlayerJoinEvent::subscribe([](Event::PlayerJoinEvent ev)->bool {
+		auto& mPlayer = ev.mPlayer;
+		auto& mPos = mPlayer->getPos();
+		GoSlice<float> goPos(vector<float>({ mPos.x, mPos.y, mPos.z }));
+		JoinEventBroadcast(mPlayer->getRealName(), mPlayer->getXuid(), mPlayer->getUuid(), mPlayer->getIP(), goPos, mPlayer->getDimensionId());
+		return true;
+		}
+	);
+	Event::PlayerLeftEvent::subscribe([](Event::PlayerLeftEvent ev)->bool {
+		auto& mPlayer = ev.mPlayer;
+		auto& mPos = mPlayer->getPos();
+		GoSlice<float> goPos(vector<float>({ mPos.x, mPos.y, mPos.z }));
+		LeftEventBroadcast(mPlayer->getRealName(), mPlayer->getXuid(), mPlayer->getUuid(), goPos, mPlayer->getDimensionId());
+		return true;
+		}
+	);
 }

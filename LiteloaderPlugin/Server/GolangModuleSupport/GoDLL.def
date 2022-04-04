@@ -2,5 +2,6 @@ LIBRARY llws_golang.dll
 EXPORTS
    Init
    StartServer
-   SetRuncmdFunc
-   SetMSVCFreeFunc
+   ChatEventBroadcast
+   JoinEventBroadcast
+   LeftEventBroadcast

@@ -59,7 +59,7 @@ struct GoString {
 //typedef struct { void* data; GoInt len; GoInt cap; } GoSlice;
 template <typename T>
 struct GoSlice {
-	T* Data;
+	const T* Data;
 	GoInt Length;
 	GoInt Capacity;
 	// std::vector Conventor

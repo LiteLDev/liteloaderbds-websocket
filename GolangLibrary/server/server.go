@@ -11,15 +11,14 @@ import "C"
 //export StartServer
 func StartServer() {
 	Config.LoadConfig("plugins/llws.json")
-	hub := newHub()
-	go hub.run()
+	go ClientHub.run()
 	http.HandleFunc(Config.Endpoint, func(w http.ResponseWriter, r *http.Request) {
 		conn, err := websocketUpgrader.Upgrade(w, r, nil)
 		if err != nil {
 			logger.Println("Client Upgrade:", err)
 			return
 		}
-		client := &Client{hub: hub, conn: conn, send: make(chan []byte, 256)}
+		client := &Client{hub: ClientHub, conn: conn, send: make(chan []byte, 256)}
 		client.hub.register <- client
 		logger.Printf("New connection establish: %s\n", client.conn.RemoteAddr().String())
 		go client.writeLoop()
