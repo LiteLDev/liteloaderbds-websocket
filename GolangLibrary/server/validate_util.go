@@ -1,7 +1,7 @@
 package server
 
 import (
-	"BDSWebsocket/logger"
+	"BDSWebsocket/server/logger"
 	"github.com/go-playground/validator/v10"
 	"reflect"
 )

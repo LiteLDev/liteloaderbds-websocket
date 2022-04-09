@@ -1,8 +1,8 @@
 package server
 
 import (
-	"BDSWebsocket/logger"
 	"BDSWebsocket/protocol"
+	"BDSWebsocket/server/logger"
 	"fmt"
 	"github.com/mitchellh/mapstructure"
 	"reflect"

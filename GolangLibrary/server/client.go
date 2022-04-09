@@ -1,8 +1,8 @@
 package server
 
 import (
-	"BDSWebsocket/logger"
 	"BDSWebsocket/protocol"
+	"BDSWebsocket/server/logger"
 	"encoding/json"
 	"github.com/gorilla/websocket"
 	"log"

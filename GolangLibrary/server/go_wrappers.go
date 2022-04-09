@@ -6,38 +6,38 @@ package server
 */
 import "C"
 import (
-	"BDSWebsocket/logger"
+	logger2 "BDSWebsocket/server/logger"
 	"unsafe"
 )
 
 //export Init
 // Init is a wrapper that init Golang Logger
 func Init() {
-	logger.SetOutput(logger.Writer_wrapper{
+	logger2.SetOutput(logger2.WriterWrapper{
 		WriteFunc: func(p []byte) {
 			str := C.CString(string(p))
-			C.LoggerWrapper(str, C.ulonglong(len(p)), logger.LInfo)
+			C.LoggerWrapper(str, C.ulonglong(len(p)), logger2.LInfo)
 			C.free(unsafe.Pointer(str))
 		},
 	})
-	logger.Warn.SetOutput(logger.Writer_wrapper{
+	logger2.Warn.SetOutput(logger2.WriterWrapper{
 		WriteFunc: func(p []byte) {
 			str := C.CString(string(p))
-			C.LoggerWrapper(str, C.ulonglong(len(p)), logger.LWarn)
+			C.LoggerWrapper(str, C.ulonglong(len(p)), logger2.LWarn)
 			C.free(unsafe.Pointer(str))
 		},
 	})
-	logger.Debug.SetOutput(logger.Writer_wrapper{
+	logger2.Debug.SetOutput(logger2.WriterWrapper{
 		WriteFunc: func(p []byte) {
 			str := C.CString(string(p))
-			C.LoggerWrapper(str, C.ulonglong(len(p)), logger.LDebug)
+			C.LoggerWrapper(str, C.ulonglong(len(p)), logger2.LDebug)
 			C.free(unsafe.Pointer(str))
 		},
 	})
-	logger.Error.SetOutput(logger.Writer_wrapper{
+	logger2.Error.SetOutput(logger2.WriterWrapper{
 		WriteFunc: func(p []byte) {
 			str := C.CString(string(p))
-			C.LoggerWrapper(str, C.ulonglong(len(p)), logger.LError)
+			C.LoggerWrapper(str, C.ulonglong(len(p)), logger2.LError)
 			C.free(unsafe.Pointer(str))
 		},
 	})

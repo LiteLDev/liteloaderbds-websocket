@@ -1,7 +1,7 @@
 package server
 
 import (
-	"BDSWebsocket/logger"
+	"BDSWebsocket/server/logger"
 	"log"
 	"net/http"
 )
