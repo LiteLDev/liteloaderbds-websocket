@@ -3,7 +3,7 @@
 
 ## Introduce  
 
-This project is goal to provice websocket interface that allows other program to remote control the server.  
+This project is goal to provide websocket interface that allows other program to remote control the server.  
 Also an example project for Develop plugins with Golang  
 Still work in progress  
 
